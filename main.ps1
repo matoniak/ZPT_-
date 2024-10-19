@@ -42,7 +42,7 @@ while ($true) {
         switch ($wybor) {
             1 {
                 # Skrypt sluzacy do sprawdzenia dostepnosci maszyny w sieci
-                # Do jego dzialania potrzebujemy HOSTNAME komputera ktory chcemy sprawdzic
+                # Do jego dzialania potrzebujemy HOSTNAME komputera ktory chcemy sprawdzic sd
                 $nazwakomputera = read-host 'nazwa komputera'
                 if (Test-Connection $nazwakomputera -Count 1 -Quiet) {
                     Test-Connection $nazwakomputera
