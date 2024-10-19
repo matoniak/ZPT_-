@@ -426,7 +426,7 @@ Invoke-Command -ComputerName $komputer -ScriptBlock {
     Remove-Item $profilePath -Recurse -Force
 } -ArgumentList $adUser
 
-# Opcjonalnie: Mozesz chciec zresetowac niektóre ustawienia uzytkownika w AD, na przyklad profilePath, homeDirectory itp.
+# Opcjonalnie: Mozesz chciec zresetowac niektore ustawienia uzytkownika w AD, na przyklad profilePath, homeDirectory itp.
 Set-ADUser $adUser -ProfilePath $null -HomeDirectory $null
 
 Write-Host "Profil uzytkownika $uszkodzonyUzytkownik zostal zresetowany."
@@ -448,7 +448,7 @@ pause
             }
 
             14 {
-                # Definicja listy komputerów do resetowania TPM
+                # Definicja listy komputerow do resetowania TPM
 $listaKomputerow = @("Komputer1", "Komputer2")
 
 # Skrypt do wykonania na kazdym komputerze
@@ -466,7 +466,7 @@ $skrypt = {
     }
 }
 
-# Wykonanie skryptu na liscie komputerów
+# Wykonanie skryptu na liscie komputerow
 foreach ($komputer in $listaKomputerow) {
     Invoke-Command -ComputerName $komputer -ScriptBlock $skrypt -Credential (Get-Credential)
 }
@@ -722,7 +722,7 @@ function informacja {
 }
 
 function kopiowanie {
-    # Lista komputerów, na które zostanie skopiowany skrypt
+    # Lista komputerow, na ktore zostanie skopiowany skrypt
     Copy-Item "\\komp\c$\dane\skrypt\all.ps1" -Destination "\\komputer1\c$\dane\P1" 
     Copy-Item "\\komp\c$\dane\skrypt\all.ps1" -Destination "\\komputer2\c$\dane\P2"
     Write-Host -ForegroundColor Green -BackgroundColor Black "Skopiowano... wykonuje restart skryptu"
