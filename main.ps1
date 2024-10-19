@@ -90,10 +90,10 @@ while ($true) {
                                     if ($result) {
                                         Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nAplikacja $toRemove została usunieta."
                                     } else {
-                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie usunąc aplikacji $toRemove."
+                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie usunac aplikacji $toRemove."
                                     }
                                 } else {
-                                    Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie odnalezc lub usunąc aplikacji $toRemove."
+                                    Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie odnalezc lub usunac aplikacji $toRemove."
                                 }
                             } else {
                                 Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nPodana czesc nazwy aplikacji nie znajduje sie na liscie."
@@ -102,8 +102,8 @@ while ($true) {
                             Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie mozna uzyskac listy aplikacji na komputerze $($nazwakomputera)."
                         }
                     } catch {
-                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Wystąpił błąd podczas pobierania listy aplikacji."
-                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Błąd: $_"
+                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Wystapił bład podczas pobierania listy aplikacji."
+                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Bład: $_"
                     }
                 }
                 
@@ -314,7 +314,7 @@ while ($true) {
                           Write-Host "Komputer $nazwakomputera jest niedostepny w sieci."
                         }
                       } catch {
-                        Write-Host "Wystąpił błąd podczas restartowania komputera: $_"
+                        Write-Host "Wystapił bład podczas restartowania komputera: $_"
                       }
                     } else {
                       Write-Host "Nazwa komputera nie moze byc pusta."
@@ -397,7 +397,7 @@ while ($true) {
                 # sciezka do instalatora MC7
 $installerPath = "\\C:\Users\Administrator\Documents\Setup_FileViewPro_2024.exe"
 
-# Opcje instalatora (zakładając, ze instalator MC7 akceptuje argumenty linii polecen)
+# Opcje instalatora (zakładajac, ze instalator MC7 akceptuje argumenty linii polecen)
 $installOptions = "/quiet /norestart"
 
 # Uruchomienie instalatora z podanymi opcjami
@@ -462,7 +462,7 @@ $skrypt = {
             Write-Output "TPM nie jest gotowy do resetowania."
         }
     } catch {
-        Write-Output "Wystąpił błąd: $_"
+        Write-Output "Wystapił bład: $_"
     }
 }
 
@@ -662,13 +662,13 @@ foreach ($komputer in $listaKomputerow) {
 
                 $source = Read-Host 'Podaj zrodlo zdarzenia (opcjonalnie): '
                 $errorLevel = Read-Host 'Podaj rodzaj bledu (opcjonalnie): '
-                $startDate = Read-Host 'Podaj date początkową (opcjonalnie, format YYYY-MM-DD): '
-                $endDate = Read-Host 'Podaj date koncową (opcjonalnie, format YYYY-MM-DD): '
+                $startDate = Read-Host 'Podaj date poczatkowa (opcjonalnie, format YYYY-MM-DD): '
+                $endDate = Read-Host 'Podaj date koncowa (opcjonalnie, format YYYY-MM-DD): '
                 $eventId = Read-Host 'Podaj EventID (opcjonalnie): '
 
                 # Sprawdzenie poprawnosci danych
                 if ($startDate -ne '' -and [DateTime]$startDate -gt [DateTime]::Now) {
-                    Write-Error 'Data początkowa nie moze byc pozniejsza niz data dzisiejsza.'
+                    Write-Error 'Data poczatkowa nie moze byc pozniejsza niz data dzisiejsza.'
                     Exit
                 }
 
@@ -678,7 +678,7 @@ foreach ($komputer in $listaKomputerow) {
                 }
 
                 if ($startDate -ne '' -and $endDate -ne '' -and [DateTime]$startDate -gt [DateTime]$endDate) {
-                    Write-Error 'Data początkowa nie moze byc pozniejsza niz data koncowa.'
+                    Write-Error 'Data poczatkowa nie moze byc pozniejsza niz data koncowa.'
                     Exit
                 }
                 if ($source -ne '') {
