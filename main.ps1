@@ -88,12 +88,12 @@ while ($true) {
                                         return $?
                                     }
                                     if ($result) {
-                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nAplikacja $toRemove została usunieta."
+                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nAplikacja $toRemove zostala usunieta."
                                     } else {
-                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie usunac aplikacji $toRemove."
+                                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udalo sie usunac aplikacji $toRemove."
                                     }
                                 } else {
-                                    Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udało sie odnalezc lub usunac aplikacji $toRemove."
+                                    Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie udalo sie odnalezc lub usunac aplikacji $toRemove."
                                 }
                             } else {
                                 Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nPodana czesc nazwy aplikacji nie znajduje sie na liscie."
@@ -102,8 +102,8 @@ while ($true) {
                             Write-Host -ForegroundColor Cyan -BackgroundColor Black "`nNie mozna uzyskac listy aplikacji na komputerze $($nazwakomputera)."
                         }
                     } catch {
-                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Wystapił bład podczas pobierania listy aplikacji."
-                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Bład: $_"
+                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Wystapil blad podczas pobierania listy aplikacji."
+                        Write-Host -ForegroundColor Cyan -BackgroundColor Black "Blad: $_"
                     }
                 }
                 
@@ -302,19 +302,19 @@ while ($true) {
                   
                     if ($nazwakomputera -ne $null -and $nazwakomputera -ne "") {
                       Informacja
-                      Write-Host "Wysyłanie komendy restartu do $nazwakomputera"
+                      Write-Host "Wysylanie komendy restartu do $nazwakomputera"
                   
                       try {
                         $pingable = Test-Connection $nazwakomputera -Count 1 -Quiet
                   
                         if ($pingable) {
                           shutdown /r /m \\$nazwakomputera /t 0
-                          Write-Host "Polecenie restartu zostało wysłane do $nazwakomputera"
+                          Write-Host "Polecenie restartu zostalo wyslane do $nazwakomputera"
                         } else {
                           Write-Host "Komputer $nazwakomputera jest niedostepny w sieci."
                         }
                       } catch {
-                        Write-Host "Wystapił bład podczas restartowania komputera: $_"
+                        Write-Host "Wystapil blad podczas restartowania komputera: $_"
                       }
                     } else {
                       Write-Host "Nazwa komputera nie moze byc pusta."
@@ -365,7 +365,7 @@ while ($true) {
                     }
                 }
                 
-                # Pobranie informacji o zalogowanych uzytkownikach przy uzyciu modułu ActiveDirectory
+                # Pobranie informacji o zalogowanych uzytkownikach przy uzyciu modulu ActiveDirectory
                 $adLoggedOnUsers = Invoke-Command -ComputerName $Comp -ScriptBlock {
                     $usernames = @()
                     $sessions = Get-WmiObject -Class Win32_ComputerSystem -ComputerName $using:Comp | Select-Object -ExpandProperty UserName
@@ -383,7 +383,7 @@ while ($true) {
                     Write-Host "Brak zalogowanych uzytkownikow."
                 }
                 
-                # Wyswietlenie dodatkowych informacji z modułu Active Directory
+                # Wyswietlenie dodatkowych informacji z modulu Active Directory
                 Write-Host "Dodatkowe informacje o zalogowanych uzytkownikach (Active Directory):"
                 if ($adLoggedOnUsers) {
                     $adLoggedOnUsers
@@ -397,17 +397,17 @@ while ($true) {
                 # sciezka do instalatora MC7
 $installerPath = "\\C:\Users\Administrator\Documents\Setup_FileViewPro_2024.exe"
 
-# Opcje instalatora (zakładajac, ze instalator MC7 akceptuje argumenty linii polecen)
+# Opcje instalatora (zakladajac, ze instalator MC7 akceptuje argumenty linii polecen)
 $installOptions = "/quiet /norestart"
 
 # Uruchomienie instalatora z podanymi opcjami
 Start-Process -FilePath $installerPath -ArgumentList $installOptions -Wait
 
-# Sprawdzenie, czy instalacja sie powiodła
+# Sprawdzenie, czy instalacja sie powiodla
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Instalacja MC7 zakonczona sukcesem."
 } else {
-    Write-Host "Instalacja MC7 nie powiodła sie. Kod błedu: $LASTEXITCODE"
+    Write-Host "Instalacja MC7 nie powiodla sie. Kod bledu: $LASTEXITCODE"
 }
 
             }
@@ -426,10 +426,10 @@ Invoke-Command -ComputerName $komputer -ScriptBlock {
     Remove-Item $profilePath -Recurse -Force
 } -ArgumentList $adUser
 
-# Opcjonalnie: Mozesz chciec zresetowac niektóre ustawienia uzytkownika w AD, na przykład profilePath, homeDirectory itp.
+# Opcjonalnie: Mozesz chciec zresetowac niektóre ustawienia uzytkownika w AD, na przyklad profilePath, homeDirectory itp.
 Set-ADUser $adUser -ProfilePath $null -HomeDirectory $null
 
-Write-Host "Profil uzytkownika $uszkodzonyUzytkownik został zresetowany."
+Write-Host "Profil uzytkownika $uszkodzonyUzytkownik zostal zresetowany."
 
             }
             12 { 
@@ -462,7 +462,7 @@ $skrypt = {
             Write-Output "TPM nie jest gotowy do resetowania."
         }
     } catch {
-        Write-Output "Wystapił bład: $_"
+        Write-Output "Wystapil blad: $_"
     }
 }
 
